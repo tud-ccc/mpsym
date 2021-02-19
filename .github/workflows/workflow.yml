@@ -51,7 +51,6 @@ jobs:
         - os: macos-latest
           INSTALL_DEPS: >
             brew install boost lua
-            pip install wheel 
           CC: clang
           CXX: clang++
     steps:
