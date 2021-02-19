@@ -61,4 +61,3 @@ jobs:
       - name: build-wheel 
         run: >
           pip wheel . --no-binary mpsym
-        run: cd build && make test # don't use test_memcheck here to save build time
