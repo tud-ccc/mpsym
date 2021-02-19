@@ -38,3 +38,27 @@ jobs:
         run: cd build && make VERBOSE=1
       - name: run-tests
         run: cd build && make test # don't use test_memcheck here to save build time
+  wheel:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest] #[ubuntu-latest, macos-latest]
+        include:
+#        - os: ubuntu-latest
+#          INSTALL_DEPS: sudo apt-get install -yq libboost-dev libboost-graph-dev lua5.3 liblua5.3-dev
+#          CC: gcc
+#          CXX: g++
+        - os: macos-latest
+          INSTALL_DEPS: >
+            brew install boost lua
+            pip install wheel 
+          CC: clang
+          CXX: clang++
+    steps:
+      - uses: actions/checkout@v2
+      - name: install-dependencies
+        run: ${{ matrix.INSTALL_DEPS }}
+      - name: build-wheel 
+        run: >
+          pip wheel . --no-binary mpsym
+        run: cd build && make test # don't use test_memcheck here to save build time
