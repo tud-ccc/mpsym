@@ -50,8 +50,7 @@ jobs:
 #          CC: gcc
 #          CXX: g++
         - os: macos-latest
-          INSTALL_DEPS:
-            - run: brew install boost lua
+          INSTALL_DEPS: brew install boost lua
           CC: clang
           CXX: clang++
     steps:
