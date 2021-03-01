@@ -58,8 +58,8 @@ jobs:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
-      #- name: install-command-line-tools
-      #  run: xcode-select --install
+      - name: install-command-line-tools
+        run: xcode-select --install
       - name: install-dependencies
         run: ${{ matrix.INSTALL_DEPS }}
       - name: Set up python
