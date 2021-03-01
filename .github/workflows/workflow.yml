@@ -59,7 +59,7 @@ jobs:
         with:
           xcode-version: latest-stable
       - name: link-headers #https://stackoverflow.com/questions/58278260/cant-compile-a-c-program-on-a-mac-after-upgrading-to-catalina-10-15/58278392#58278392 
-        run: sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
+        run: sudo ln -s -f /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
       - name: install-dependencies
         run: ${{ matrix.INSTALL_DEPS }}
       - name: Set up python
