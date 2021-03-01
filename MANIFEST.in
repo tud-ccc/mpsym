@@ -10,7 +10,6 @@ include nauty/CMakeLists.txt
 recursive-include tests *
 global-exclude __pycache__/* *.pyc
 global-exclude *.a *.o
-cmake
 #doxygen
 #lint
 #profile
