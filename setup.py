@@ -81,7 +81,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='mpsym',
-    version='0.5',
+    version='0.6',
     description="MPSoC Symmetry Reduction",
     long_description="mpsym is a C++/Lua/Python library that makes it possible to determine whether mappings of computational tasks to multiprocessor systems are equivalent by symmetry. It can also potentially be used to solve more general graph symmetry problems.",
     url="https://github.com/Time0o/mpsym",
