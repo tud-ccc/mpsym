@@ -6,9 +6,9 @@ cmake_minimum_required(VERSION 3.6)
 ################################################################################
 
 set(CMAKE_PROJECT_NAME "mpsym")
-set(CMAKE_PROJECT_VERSION "0.5")
+set(CMAKE_PROJECT_VERSION "0.6")
 set(CMAKE_PROJECT_DESCRIPTION "MPSoC Symmetry Reduction")
-set(CMAKE_PROJECT_HOMEPAGE_URL "https://github.com/Time0o/mpsym")
+set(CMAKE_PROJECT_HOMEPAGE_URL "https://github.com/tud-ccc/mpsym")
 set(CMAKE_PROJECT_DOC_URL "https://time0o.github.io/mpsym/")
 set(CMAKE_PROJECT_AUTHOR "Timo Nicolai")
 set(CMAKE_PROJECT_AUTHOR_EMAIL "timonicolai@arcor.de")
