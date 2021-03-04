@@ -84,7 +84,7 @@ setup(
     version='0.6',
     description="MPSoC Symmetry Reduction",
     long_description="mpsym is a C++/Lua/Python library that makes it possible to determine whether mappings of computational tasks to multiprocessor systems are equivalent by symmetry. It can also potentially be used to solve more general graph symmetry problems.",
-    url="https://github.com/Time0o/mpsym",
+    url="https://github.com/tud-ccc/mpsym",
     author="Timo Nicolai",
     author_email="timonicolai@arcor.de",
     license="MIT",
