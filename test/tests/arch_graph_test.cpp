@@ -15,6 +15,7 @@
 #include "perm_group.hpp"
 #include "task_mapping.hpp"
 #include "test_utility.hpp"
+#include "timeout.hpp"
 
 #include "test_main.cpp"
 
@@ -438,6 +439,28 @@ TEST_F(ArchGraphClusterTest, CanObtainAutormorphisms)
       Perm(4, {{0, 1}, {2, 3}})
     }, cluster_minimal->automorphisms()))
     << "Automorphisms of minimal architecture graph cluster correct.";
+}
+
+TEST_F(ArchGraphClusterTest, CanAbortSubsystemAutomorphisms)
+{
+  auto aborted(timeout::unset());
+  timeout::set(aborted);
+
+  EXPECT_THROW(cluster_minimal->automorphisms(nullptr, aborted),
+               timeout::AbortedError);
+  EXPECT_FALSE(cluster_minimal->subsystems()[0]->automorphisms_ready());
+}
+
+TEST_F(ArchGraphClusterTest, CanAbortDirectProductWithCachedSubsystems)
+{
+  for (auto const &subsystem : cluster_minimal->subsystems())
+    subsystem->automorphisms();
+
+  auto aborted(timeout::unset());
+  timeout::set(aborted);
+
+  EXPECT_THROW(cluster_minimal->automorphisms(nullptr, aborted),
+               timeout::AbortedError);
 }
 
 class ArchGraphClusterReprVariantTest :
