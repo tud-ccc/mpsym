@@ -195,6 +195,14 @@ if(CMAKE_BUILD_TYPE STREQUAL "${CMAKE_BUILD_TYPE_DEBUG}")
                        WORK_DIR "${GTEST_DOWNLOAD_DIR}"
                        SRC_DIR "${GTEST_SRC_DIR}"
                        BIN_DIR "${GTEST_BIN_DIR}")
+
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    foreach(GTEST_TARGET gtest gtest_main gmock gmock_main)
+      if(TARGET "${GTEST_TARGET}")
+        target_compile_options("${GTEST_TARGET}" PRIVATE -Wno-error=maybe-uninitialized)
+      endif()
+    endforeach()
+  endif()
 endif()
 
 # Permlib
