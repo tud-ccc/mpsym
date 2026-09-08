@@ -92,6 +92,5 @@ setup(
     ext_modules=[CMakeExtension('mpsym._mpsym', '.')],
     package_dir={'': 'python'},
     packages=['mpsym'],
-    setup_requires=['wheel'],
     zip_safe=False
 )
