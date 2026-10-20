@@ -229,12 +229,17 @@ endif()
 if(PYTHON_BINDINGS)
   # Python
   message(STATUS "Finding Python...")
-  if(NOT PYTHON_EXECUTABLE)
-    find_program(PYTHON_EXECUTABLE python3)
-    if(NOT PYTHON_EXECUTABLE)
-      message(FATAL_ERROR "Python not found")
-    endif()
+  if(CMAKE_VERSION VERSION_LESS 3.18)
+    message(FATAL_ERROR "Python bindings require CMake 3.18 or newer")
   endif()
+
+  # Keep compatibility with the original interpreter selection option.
+  if(PYTHON_EXECUTABLE AND NOT Python_EXECUTABLE)
+    set(Python_EXECUTABLE "${PYTHON_EXECUTABLE}")
+  endif()
+
+  find_package(Python 3 REQUIRED COMPONENTS Interpreter Development.Module)
+  set(PYBIND11_FINDPYTHON ON)
 
   # pybind11
   message(STATUS "Acquiring pybind11...")
