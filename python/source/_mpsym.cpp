@@ -522,7 +522,7 @@ PYBIND11_MODULE_(PYTHON_MODULE_INTERNAL, m)
     .def("fully_connect",
          [](ArchGraph &self, py::iterable it, std::string const &cl)
          {
-           auto processors(to_sequence<>(py::make_iterator(it)));
+           auto processors(to_sequence<>(py::iter(it)));
 
            for (unsigned pe1 : processors) {
              for (unsigned pe2 : processors) {
@@ -738,7 +738,7 @@ PYBIND11_MODULE_(PYTHON_MODULE_INTERNAL, m)
     .def_static("direct_product",
                 [](py::iterable it)
                 {
-                  auto groups(to_sequence<PermGroup>(py::make_iterator(it)));
+                  auto groups(to_sequence<PermGroup>(py::iter(it)));
 
                   return PermGroup::direct_product(groups.begin(), groups.end());
                 },
