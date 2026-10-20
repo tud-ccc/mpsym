@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+        lua-embed: ["OFF", "ON"]
         include:
         - os: ubuntu-latest
           INSTALL_DEPS: sudo apt-get install -yq libboost-dev libboost-graph-dev lua5.3 liblua5.3-dev
@@ -30,6 +31,7 @@ jobs:
           cmake ..
           -DCMAKE_BUILD_TYPE=Debug
           -DPYTHON_BINDINGS=ON
+          -DLUA_EMBED=${{ matrix.lua-embed }}
           -DNO_COVERAGE=ON
           -DCMAKE_C_COMPILER=${{ matrix.CC }}
           -DCMAKE_CXX_COMPILER=${{ matrix.CXX }}
