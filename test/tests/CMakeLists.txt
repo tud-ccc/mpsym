@@ -41,7 +41,7 @@ endforeach()
 if(PYTHON_BINDINGS)
   add_test(
     NAME python
-    COMMAND "${PYTHON_EXECUTABLE}" -c "import sys; import mpsym; sys.exit(mpsym.test())"
+    COMMAND "${Python_EXECUTABLE}" -c "import sys; import mpsym; sys.exit(mpsym.test())"
     WORKING_DIRECTORY "${PYTHON_DIR}"
   )
 
