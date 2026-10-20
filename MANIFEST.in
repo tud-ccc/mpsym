@@ -1,6 +1,5 @@
 include LICENSE.txt README.md 
 include CMakeLists.txt
-include embedfile.sh
 recursive-include source *
 recursive-include include *
 recursive-include python *
