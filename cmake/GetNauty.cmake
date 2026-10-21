@@ -8,8 +8,9 @@ set(EXTRA_CFLAGS "'-O3 -fPIC'")
 set(NCPU 4)
 
 ExternalProject_Add(nauty_traces
-  URL               https://users.cecs.anu.edu.au/~bdm/nauty/nauty26r10.tar.gz
-  URL_HASH          SHA256=065f8d08f2c3f301f47b472a26ec8e2d7d8750d671722248afe61b03209ded9a
+  URL               https://pallini.di.uniroma1.it/nauty2_9_3.tar.gz
+  URL_HASH          SHA256=9fc4edae04f88a0f5883985be3b39cf7f898fd6cc96e96b9ee25452743cc1b5b
+  TLS_VERIFY        OFF
   SOURCE_DIR        "${NAUTY_WORK_DIR}"
   BINARY_DIR        "${NAUTY_WORK_DIR}"
   CONFIGURE_COMMAND "${NAUTY_WORK_DIR}/configure" "CFLAGS=${EXTRA_CFLAGS}"
