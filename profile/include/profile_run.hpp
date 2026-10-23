@@ -27,16 +27,15 @@ std::vector<std::string> run_gap(
   bool compile = false,
   std::vector<double> *ts = nullptr);
 
-// TODO: use invoke_result instead
 template<typename FUNC>
-typename std::result_of<FUNC()>::type run_cpp(FUNC &&f,
+std::invoke_result_t<FUNC> run_cpp(FUNC &&f,
                                               unsigned num_discarded_runs,
                                               unsigned num_runs,
                                               std::vector<double> *ts = nullptr)
 {
   // true if this function does not return anything
   constexpr bool returns_void =
-    std::is_same<typename std::result_of<FUNC()>::type, void>::value;
+    std::is_same<std::invoke_result_t<FUNC>, void>::value;
 
   for (unsigned r = 0u; r < num_discarded_runs + num_runs; ++r) {
     bool take_time = ts && r >= num_discarded_runs;

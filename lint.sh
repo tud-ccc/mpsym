@@ -14,7 +14,7 @@ run_clang_tidy() {
 
   clang-tidy -checks=-*,modernize-*,-modernize-use-trailing-return-type \
     "$SRC_DIR/$1" -header-filter="$INC_DIR/.*" \
-    -- "$SRC_DIR/$1" \
+    -- "$SRC_DIR/$1" -std=c++17 \
     -I "$INC_DIR" -isystem "$LUA_INC_DIR" -isystem "$NAUTY_INC_DIR" \
     > "$LINT_DIR/clang-tidy-${1%.cpp}.txt" 2> /dev/null
 }
@@ -27,7 +27,7 @@ done
 echo "running cppcheck..."
 
 cppcheck --quiet \
-  --std=c++11 \
+  --std=c++17 \
   --enable=all --suppress=missingIncludeSystem \
   -ULUA_USER_H -UNAUTY_IN_MAGMA --force \
   -I "$INC_DIR"  -I "$LUA_INC_DIR" -I "$NAUTY_INC_DIR" \

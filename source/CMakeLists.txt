@@ -73,6 +73,8 @@ else()
   set_default_target_properties(TARGET "${MPSYM_LIB}")
 endif()
 
+target_compile_features("${MPSYM_LIB}" PUBLIC cxx_std_17)
+
 target_link_libraries("${MPSYM_LIB}"
                       PUBLIC "${Boost_LIBRARIES}"
                       PRIVATE "${LUA_LIBRARIES}"

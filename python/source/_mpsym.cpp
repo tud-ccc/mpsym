@@ -156,7 +156,7 @@ T arch_graph_json_cast(ArchGraphSystem const &self, std::string const &key)
 }
 
 template<typename FUNC, typename ...ARGS>
-typename std::result_of<FUNC(ArchGraphSystem *, ARGS..., flag)>::type
+std::invoke_result_t<FUNC, ArchGraphSystem *, ARGS..., flag>
 arch_graph_timeout(std::string const &what,
                    double timeout,
                    ArchGraphSystem &self,
