@@ -123,7 +123,7 @@ dump::Dumper<T> make_dumper(T const &obj,
 
 template<typename T, typename FUNC>
 using transformed_type =
-  typename std::result_of<FUNC(decltype(*std::declval<T>().begin()))>::type;
+  std::invoke_result_t<FUNC, decltype(*std::declval<T>().begin())>;
 
 template<typename T, typename FUNC>
 using transformed_container = typename std::conditional<

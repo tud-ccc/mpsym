@@ -23,7 +23,9 @@ project(
   LANGUAGES "CXX" "C"
 )
 
-set(CMAKE_CXX_STANDARD 14)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
 
 set(DEBUG_FLAGS " -g3 -fno-omit-frame-pointer")
 string(APPEND CMAKE_C_FLAGS_DEBUG "${DEBUG_FLAGS}")
@@ -153,7 +155,7 @@ function(set_default_target_properties)
 
   set_target_properties("${Arg_TARGET}" PROPERTIES
     LINKER_LANGUAGE CXX
-    CXX_STANDARD 14
+    CXX_STANDARD "${CMAKE_CXX_STANDARD}"
     CXX_STANDARD_REQUIRED ON
     COMPILE_FLAGS "${MAIN_COMPILER_FLAGS}"
     LINK_FLAGS "${MAIN_LINK_FLAGS}"
