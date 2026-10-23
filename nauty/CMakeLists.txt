@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.18)
 
 set(SOURCE_FILES
     "${NAUTY_WORK_DIR}/gtnauty.c"

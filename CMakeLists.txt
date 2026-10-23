@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.18)
 
 
 ################################################################################
@@ -229,10 +229,6 @@ endif()
 if(PYTHON_BINDINGS)
   # Python
   message(STATUS "Finding Python...")
-  if(CMAKE_VERSION VERSION_LESS 3.18)
-    message(FATAL_ERROR "Python bindings require CMake 3.18 or newer")
-  endif()
-
   # Keep compatibility with the original interpreter selection option.
   if(PYTHON_EXECUTABLE AND NOT Python_EXECUTABLE)
     set(Python_EXECUTABLE "${PYTHON_EXECUTABLE}")
