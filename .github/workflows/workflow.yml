@@ -32,7 +32,6 @@ jobs:
           -DCMAKE_BUILD_TYPE=Debug
           -DPYTHON_BINDINGS=ON
           -DLUA_EMBED=${{ matrix.lua-embed }}
-          -DNO_COVERAGE=ON
           -DCMAKE_C_COMPILER=${{ matrix.CC }}
           -DCMAKE_CXX_COMPILER=${{ matrix.CXX }}
       - name: cmake-build
