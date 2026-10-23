@@ -173,7 +173,7 @@ if(LINK_STATIC)
 endif()
 
 message(STATUS "Finding boost...")
-find_package(Boost 1.40 REQUIRED COMPONENTS graph)
+find_package(Boost 1.72 CONFIG REQUIRED COMPONENTS graph)
 
 # Lua
 message(STATUS "Finding Lua...")
