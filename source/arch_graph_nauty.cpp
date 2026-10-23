@@ -46,7 +46,7 @@ NautyGraph ArchGraph::graph_nauty() const
     }
 
     for (auto ch : channels()) {
-      if (channel_type(ch) + 1 & (1 << level))
+      if ((channel_type(ch) + 1) & (1 << level))
         g.add_edge(source(ch) + level * n_orig, target(ch) + level * n_orig);
     }
   }
