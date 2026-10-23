@@ -22,7 +22,7 @@ jobs:
           CC: clang
           CXX: clang++
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: install-dependencies
         run: ${{ matrix.INSTALL_DEPS }}
       - name: cmake-configure
