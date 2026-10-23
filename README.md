@@ -124,7 +124,7 @@ supported by the build system.
 **Note:** The updated version in this repository has not yet been published to PyPI.
 
 If you only plan on calling MPsym from Python, then the easiest way to install
-it is via `pip install pympsym`. This requires `Python >= 3.6` and `pip >= 19.3`.
+it is via `pip install mpsym`. This requires `Python >= 3.6` and `pip >= 19.3`.
 
 ### From Source
 
